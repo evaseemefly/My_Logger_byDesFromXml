@@ -16,12 +16,16 @@ namespace My_Logger.Model
         [XmlElement(Order =0)]
         public Logger_Model Logger { get; set; }
 
+        /// <summary>
+        /// 在无参构造函数中实例化需要加载的配置对象
+        /// </summary>
         public ConfigModel()
         {
             Logger = new Logger_Model();
         }
     }
 
+    #region 注释掉的部分——分离到Logger_Model类中
     //public class Logger_Model
     //{
     //    [DisplayName("日志实现方式：File,Log4net,MongoDB")]
@@ -36,4 +40,6 @@ namespace My_Logger.Model
     //    [System.Xml.Serialization.XmlElement(Order = 2)]
     //    public string ProjectName { get; set; }
     //}
+    #endregion
+
 }

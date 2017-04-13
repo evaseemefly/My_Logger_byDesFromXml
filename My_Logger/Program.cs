@@ -30,8 +30,9 @@ namespace My_Logger
             #endregion
             
             //var config_other_test = Common.SerializationHelper.DesFromXML<Model.Config>(_fileName);
-            var config1 = Config.ConfigManagemt.Config;
-
+            //var config1 = Config.ConfigManagemt.Config;
+            Logger.LoggerFactory.Instance.Logger_Info("测试测试");
+            Console.ReadLine();
             //测试由对象写入到xml文件中
             #region 测试由对象写入到xml文件中
             //var config2 = new Model.ConfigModel() { Logger = new Model.Logger_Model {
