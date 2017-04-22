@@ -15,6 +15,8 @@ namespace My_Logger.Config
 
         private static Model.ConfigModel _init;
 
+        private static Model.PubSub_Model _pubsub;
+
         private static string _fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Config.xml");
 
         /// <summary>

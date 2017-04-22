@@ -30,7 +30,7 @@ namespace My_Logger.Logger.Instance
 
         public void Logger_Info(string msg)
         {
-            throw new NotImplementedException();
+            Console.WriteLine(msg);
         }
 
         public void Logger_Timer(string msg, Action action)

@@ -4,13 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0612991C-A60F-4BF5-8E02-C98EF39AD41C}</ProjectGuid>
+    <ProjectGuid>{2F226677-6FE9-4902-93F2-90F3D68BA5DA}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>My_Logger</RootNamespace>
-    <AssemblyName>My_Logger</AssemblyName>
+    <RootNamespace>My_MsgPubSub_byRedis</RootNamespace>
+    <AssemblyName>My_MsgPubSub_byRedis</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,13 +34,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="StackExchange.Redis, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.1.2.1\lib\net45\StackExchange.Redis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.ComponentModel.Composition.Registration" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.IO.Compression" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,30 +49,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\SerializationHelper.cs" />
-    <Compile Include="Config\ConfigManagemt.cs" />
-    <Compile Include="Enum\Level.cs" />
-    <Compile Include="Logger\ILogger.cs" />
-    <Compile Include="Logger\Instance\DefaultLogger.cs" />
-    <Compile Include="Logger\Instance\Log4NetLogger.cs" />
-    <Compile Include="Logger\Instance\LoggerBase.cs" />
-    <Compile Include="Logger\LoggerFactory.cs" />
-    <Compile Include="Model\ConfigModel.cs" />
-    <Compile Include="Model\Logger_Model.cs" />
-    <Compile Include="Model\PubSub_Model.cs" />
-    <Compile Include="Model\Redis_Model.cs" />
+    <Compile Include="IPubSub.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PubSubManager.cs" />
+    <Compile Include="PubSubRedisProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\My_Logger\My_Logger.csproj">
+      <Project>{0612991c-a60f-4bf5-8e02-c98ef39ad41c}</Project>
+      <Name>My_Logger</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

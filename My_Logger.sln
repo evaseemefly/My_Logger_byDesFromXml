@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My_Logger", "My_Logger\My_Logger.csproj", "{0612991C-A60F-4BF5-8E02-C98EF39AD41C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My_MsgPubSub_byRedis", "My_MsgPubSub_byRedis\My_MsgPubSub_byRedis.csproj", "{2F226677-6FE9-4902-93F2-90F3D68BA5DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{0612991C-A60F-4BF5-8E02-C98EF39AD41C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0612991C-A60F-4BF5-8E02-C98EF39AD41C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0612991C-A60F-4BF5-8E02-C98EF39AD41C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F226677-6FE9-4902-93F2-90F3D68BA5DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F226677-6FE9-4902-93F2-90F3D68BA5DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F226677-6FE9-4902-93F2-90F3D68BA5DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F226677-6FE9-4902-93F2-90F3D68BA5DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
