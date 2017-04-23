@@ -26,7 +26,8 @@ namespace My_MsgPubSub_byRedis
         /// </summary>
         private PubSubManager()
         {
-            pubsub = new PubSubRedisProvider();
+            //pubsub = new PubSubRedisProvider();
+            pubsub = Common.ServiceLocator.Instance.GetService<IPubSub>();
 
         }
 
@@ -57,6 +58,12 @@ namespace My_MsgPubSub_byRedis
             }
         }
 
+        /// <summary>
+        /// 发布
+        /// </summary>
+        /// <param name="channel">频道名称</param>
+        /// <param name="value">消息内容</param>
+        /// <returns></returns>
         public long Publish(string channel, string value)
         {
             if (pubsub.Publish(channel, value) == 0)
@@ -69,6 +76,11 @@ namespace My_MsgPubSub_byRedis
             return 0;
         }
 
+        /// <summary>
+        /// 订阅
+        /// </summary>
+        /// <param name="channel"></param>
+        /// <param name="action"></param>
         public void Subscribe(string channel, Action<string> action)
         {
             pubsub.Subscribe(channel, action);
@@ -86,12 +98,20 @@ namespace My_MsgPubSub_byRedis
 
         public long PublishByte(string channel, byte[] value)
         {
-            throw new NotImplementedException();
+            if (pubsub.PublishByte(channel, value) == 0)
+            {
+                //订阅者为0，或者订阅者出现异常，我们可以重试
+                RepeatAction(channel, () =>
+                {
+                    return pubsub.PublishByte(channel, value) > 0;
+                });
+            }
+            return 0;
         }
 
         public void SubscribeByte(string channel, Action<byte[]> action)
         {
-            throw new NotImplementedException();
+            pubsub.SubscribeByte(channel, action);
         }
 
         public long PublishByteAsync(string channel, byte[] value)
@@ -106,12 +126,20 @@ namespace My_MsgPubSub_byRedis
 
         public long Publish<T>(string channel, T value)
         {
-            throw new NotImplementedException();
+            if (pubsub.Publish<T>(channel, value) == 0)
+            {
+                //订阅者为0，或者订阅者出现异常，我们可以重试
+                RepeatAction(channel, () =>
+                {
+                    return pubsub.Publish<T>(channel, value) > 0;
+                });
+            }
+            return 0;
         }
 
         public void Subscribe<T>(string channel, Action<T> action)
         {
-            throw new NotImplementedException();
+            pubsub.Subscribe(channel, action);
         }
 
         public long PublishAsync<T>(string channel, T value)

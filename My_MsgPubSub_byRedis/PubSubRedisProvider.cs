@@ -11,6 +11,8 @@ namespace My_MsgPubSub_byRedis
     {
         /// <summary>
         /// 订阅者与发布者对象
+        /// 是一个相互关联的组到Redis服务器的连接
+        /// 从指定服务器获取 发布者/订阅者 连接
         /// </summary>
         static ISubscriber sub = StackExchange.Redis.ConnectionMultiplexer.Connect(My_Logger.Config.ConfigManagemt.Config.Redis.Host).GetSubscriber();
 
@@ -19,11 +21,13 @@ namespace My_MsgPubSub_byRedis
         #region String对象
         public long Publish(string channel, string value)
         {
+            //发送消息到指定频道
             return sub.Publish(channel, value);
         }
 
         public void Subscribe(string channel, Action<string> action)
         {
+            //当执行首选/活动节点的更改时，订阅执行某些操作。
             sub.Subscribe(channel, (c, m) =>
             {
                 action(m);
