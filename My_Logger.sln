@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My_MsgPubSub_byRedis", "My_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{D0913231-987C-42D8-8724-84E261448FDA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My_DDD", "My_DDD\My_DDD.csproj", "{5E098AEF-B1E1-43BD-BE47-FEE22B8265BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D0913231-987C-42D8-8724-84E261448FDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0913231-987C-42D8-8724-84E261448FDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0913231-987C-42D8-8724-84E261448FDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E098AEF-B1E1-43BD-BE47-FEE22B8265BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E098AEF-B1E1-43BD-BE47-FEE22B8265BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E098AEF-B1E1-43BD-BE47-FEE22B8265BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E098AEF-B1E1-43BD-BE47-FEE22B8265BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
