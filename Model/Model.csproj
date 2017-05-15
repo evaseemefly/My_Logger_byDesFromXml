@@ -41,11 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config_Model.cs" />
-    <Compile Include="Logger_Model.cs" />
+    <Compile Include="ConfigModel.cs" />
+    <Compile Include="LoggerModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PubSub_Model.cs" />
-    <Compile Include="Redis_Model.cs" />
+    <Compile Include="PubSubModel.cs" />
+    <Compile Include="RedisModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

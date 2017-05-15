@@ -44,8 +44,9 @@ namespace My_MsgPubSub_byRedis
 
         static void TestRedis()
         {
-            RedisManager.Instance.GetDatabase().SetAdd("test", "ceshi1");
-
+            RedisManager.Instance.GetDatabase().StringSet("test", "ceshi1");
+            if(RedisManager.Instance.GetDatabase().KeyExists("test"))
+            Console.WriteLine(RedisManager.Instance.GetDatabase().StringGet("test"));
 
         }
     }

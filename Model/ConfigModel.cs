@@ -7,30 +7,30 @@ using System.Xml.Serialization;
 
 namespace Model
 {
-    public class Config_Model
+    public class ConfigModel
     {
         //[XmlElement("Logger")]
         //[XmlChoiceIdentifier("Logger")]
         [XmlElement(ElementName = "Logger")]
         //[XmlElement(Order =0)]
-        public Logger_Model Logger { get; set; }
+        public LoggerModel Logger { get; set; }
 
         [XmlElement(ElementName = "PubSub")]
         //[XmlElement(Order =1)]
-        public PubSub_Model PubSub { get; set; }
+        public PubSubModel PubSub { get; set; }
 
         [XmlElement(ElementName = "Redis")]
         //[XmlElement(Order =2)]
-        public Redis_Model Redis { get; set; }
+        public RedisModel Redis { get; set; }
 
         /// <summary>
         /// 在无参构造函数中实例化需要加载的配置对象
         /// </summary>
-        public Config_Model()
+        public ConfigModel()
         {
-            Logger = new Logger_Model();
-            PubSub = new PubSub_Model();
-            Redis = new Redis_Model();
+            Logger = new LoggerModel();
+            PubSub = new PubSubModel();
+            Redis = new RedisModel();
         }
     }
 }

@@ -10,11 +10,11 @@ namespace Common.Config
 {
     public class ConfigManagemt
     {
-        private static Model.Config_Model _config;
+        private static Model.ConfigModel _config;
 
-        private static Model.Config_Model _init;
+       private static Model.ConfigModel _init;
 
-        private static Model.PubSub_Model _pubsub;
+      //  private static Model.PubSub_Model _pubsub;
 
         private static string _fileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Config.xml");
 
@@ -25,13 +25,13 @@ namespace Common.Config
 
         static ConfigManagemt()
         {
-            _init = new Model.Config_Model();
-            _init.Logger.Level = "DEBUG";
-            _init.Logger.ProjectName = "My_Logger";
-            _init.Logger.Type = "File";
+            _init = new Model.ConfigModel();
+            //_init.Logger.Level = "DEBUG";
+            //_init.Logger.ProjectName = "My_Logger";
+            //_init.Logger.Type = "File";
         }
 
-        public static Model.Config_Model Config
+        public static Model.ConfigModel Config
         {
             get
             {
@@ -42,7 +42,7 @@ namespace Common.Config
                         if (_config == null)
                         {
                             XmlElement xml = null;
-                            var old_xml = Common.SerializationHelper.DesFromXML<Model.Config_Model>(_fileName);
+                            var old_xml = Common.SerializationHelper.DesFromXML<Model.ConfigModel>(_fileName);
 
                             if (old_xml != null)
                             {
@@ -51,7 +51,7 @@ namespace Common.Config
                                 xml = configXML.DocumentElement;
                             }
 
-                            if (old_xml == null || xml.ChildNodes.Count != typeof(Model.Config_Model).GetProperties().Count())
+                            if (old_xml == null || xml.ChildNodes.Count != typeof(Model.ConfigModel).GetProperties().Count())
                             {
                                 Common.SerializationHelper.Serialize2XML(_fileName, _init);
                                 _config = _init;

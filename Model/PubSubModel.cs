@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class PubSub_Model
+    public class PubSubModel
     {
         #region 分布式Pub/Sub
         /// <summary>

@@ -27,9 +27,9 @@ namespace My_Logger.Config
         static ConfigManagemt()
         {
             _init = new Model.ConfigModel();
-            _init.Logger.Level = "DEBUG";
-            _init.Logger.ProjectName = "My_Logger";
-            _init.Logger.Type = "File";
+            //_init.Logger.Level = "DEBUG";
+            //_init.Logger.ProjectName = "My_Logger";
+            //_init.Logger.Type = "File";
         }
 
         public static Model.ConfigModel Config

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    public class Redis_Model
+    public class RedisModel
     {
         #region Redis
         /// <summary>
@@ -20,6 +20,7 @@ namespace Model
         [DisplayName("StackExchange.redis代理模式（可选0:无，1：TW")]
         [System.Xml.Serialization.XmlElementAttribute(Order = 1)]
         public int Proxy { get; set; }
+
         #endregion
     }
 }

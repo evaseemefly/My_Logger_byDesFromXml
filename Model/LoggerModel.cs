@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 
 namespace Model
 {
-    public partial class Logger_Model
+    public partial class LoggerModel
     {
         [DisplayName("日志实现方式：File,Log4net,MongoDB")]
         [XmlElement(Order = 0)]
