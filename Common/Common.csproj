@@ -65,7 +65,8 @@
   <ItemGroup>
     <Compile Include="Config\ConfigManagemt.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RedisManager.cs" />
+    <Compile Include="Redis\RedisManager.cs" />
+    <Compile Include="Redis\StringRedisHelper.cs" />
     <Compile Include="SerializationHelper.cs" />
     <Compile Include="ServiceLocator.cs" />
   </ItemGroup>

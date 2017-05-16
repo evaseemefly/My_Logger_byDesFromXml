@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common
+namespace Common.Redis
 {
     public class RedisManager
     {
@@ -14,9 +14,20 @@ namespace Common
         private static ConnectionMultiplexer instance;
 
         /// <summary>
+        /// 在redis中获得一个与数据库的交互连接
+        /// </summary>
+        protected static IDatabase DbContext
+        {
+            get
+            {
+                return Instance.GetDatabase();
+            }
+        }
+
+        /// <summary>
         /// 通过单例的方式创建多路复用器
         /// </summary>
-        public static ConnectionMultiplexer Instance
+        protected static ConnectionMultiplexer Instance
         {
             get
             {
